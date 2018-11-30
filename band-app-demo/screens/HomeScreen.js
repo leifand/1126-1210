@@ -12,6 +12,7 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import Game from '../components/cardboardgame';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -44,7 +45,9 @@ export default class HomeScreen extends React.Component {
 
           </View>
 
-          
+          <View>
+            
+          </View>
 
           <View style={styles.helpContainer}>
             <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
