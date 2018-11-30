@@ -38,6 +38,7 @@
             this.deck[currentindex] = this.deck[randomindex];
             this.deck[randomindex] = temp;
         }
+        console.log("SHUFFLE");
     }
 
     deal() {
@@ -53,6 +54,7 @@
             this.hands.push(hand);
             hand = [];
         }
+        console.log("DEALT HANDS");
         return this.hands;
     }
 

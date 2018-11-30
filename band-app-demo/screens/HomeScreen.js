@@ -5,14 +5,13 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  Button,
   TouchableOpacity,
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
-import { Card } from '../components/cardboardgame';
+import { Row, ShuffleButton } from '../components/cardboardgame';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -45,8 +44,12 @@ export default class HomeScreen extends React.Component {
 
           </View>
 
+          <View >
+             <Row />
+          </View>
+
           <View>
-           <Button title="QUELL" />
+            <ShuffleButton />
           </View>
 
           <View style={styles.helpContainer}>
@@ -105,6 +108,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  cardContainer: {
+    width: 11,
+    height: 20,
+  },
+  rowContainer: {  
+    width: 335,
+    height: 20,
+    borderWidth: 1,
+    margin: 10,
+    flex: 1,
+    flexDirection: 'row',
+},
   developmentModeText: {
     marginBottom: 20,
     color: 'rgba(0,0,0,0.4)',
