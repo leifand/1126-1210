@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Text, View } from 'react-native';
-import Deck from './decklib';
+import { Deck } from './decklib';
 
 const deck = new Deck();
 deck.generate_deck();

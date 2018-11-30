@@ -1,4 +1,4 @@
-module.exports = class Deck {
+    export class Deck {
     constructor() {
         this.deck = [];
         this.dealt_cards = [];

@@ -5,14 +5,14 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  //Button,
+  Button,
   TouchableOpacity,
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
-import Game from '../components/cardboardgame';
+import { Card } from '../components/cardboardgame';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -46,7 +46,7 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View>
-            
+           <Button title="QUELL" />
           </View>
 
           <View style={styles.helpContainer}>
