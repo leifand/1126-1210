@@ -25,7 +25,7 @@ export class Card extends Component {
 
     render() {
       return <View>
-        <View style={{flex: 1, flexDirection: 'row'}}>
+        <View style={{flex: 1, flexDirection: 'row',justifyContent:'center',alignItems:'center'}}>
           {this.renderCard(deck.hands[0][0].name)}
           {this.renderCard(deck.hands[0][1].name)}
           {this.renderCard(deck.hands[0][2].name)}
