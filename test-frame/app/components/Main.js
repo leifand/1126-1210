@@ -7,7 +7,20 @@ export default class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      noteArray: [],
+      noteArray: [
+        {
+        "date": "2018/12/21",
+        "note": 'director to table 13 plz!!',
+        },
+        {
+        "date": "2018/12/21",
+        "note": "Lacy is sooooooo unfair!!!!!",
+        },
+        {
+        "date": "2018/12/21",
+        "note": "Who ate all the cheese??",
+        },
+      ],
       noteText: '',
     }
   }
@@ -61,6 +74,7 @@ export default class Main extends React.Component {
       this.setState({noteArray: this.state.noteArray});
       this.setState({noteText: ''});
     }
+    console.log(this.state.noteArray);
   }
 
   deleteNote(key) {
