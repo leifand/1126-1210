@@ -13,7 +13,6 @@ export default class Note extends React.Component {
                 <Text style={styles.noteDeleteText}>delete</Text>
             </TouchableOpacity>
         </View>
-
     );
   }
 }
