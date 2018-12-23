@@ -1,12 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import Note from './Note';
+import Hand from './Hand';
 
 export default class Main extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      north: {
+        clubs:['A','10','4'],
+        diamonds:['J','9','2'],
+        hearts:['5','3'],
+        spades:['A','K','Q','5','2'],
+      },
       noteArray: [
         {
         "date": "2018/12/21",
@@ -27,6 +34,8 @@ export default class Main extends React.Component {
 
   render() {
 
+    
+
     let notes = this.state.noteArray.map((val,key) => {
       return <Note key={key} keyval={key} val={val}
         deletMethod={()=>this.deleteNote(key)}/>
@@ -36,14 +45,15 @@ export default class Main extends React.Component {
       <View style={styles.container}>
         
         <View style={styles.header}>
-          <Text style={styles.headerText}> BRIDGE NOTES </Text>
+          <Text style={styles.headerText}> BRIDGE QUIZ </Text>
         </View>
 
         <ScrollView style={styles.scrollContainer}>
+          <Hand val={this.state.north}/>
           {notes}
         </ScrollView>
 
-        <View style={styles.footer}>
+        <KeyboardAvoidingView behavior='padding' style={styles.footer}>
 
         <TextInput 
           style={styles.textInput}
@@ -54,7 +64,7 @@ export default class Main extends React.Component {
           underlineColorAndroid='transparent'>
         </TextInput>
         
-        </View>
+        </KeyboardAvoidingView>
 
         <TouchableOpacity onPress={this.addNote.bind(this)} style={styles.addButton}>
           <Text style={styles.addButtonText}>+</Text>
