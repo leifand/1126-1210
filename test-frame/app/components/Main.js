@@ -108,6 +108,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     padding: 26,
+    fontStyle: 'italic',
+    fontWeight: 'bold',
   },
   scrollContainer: {
     flex: 1,

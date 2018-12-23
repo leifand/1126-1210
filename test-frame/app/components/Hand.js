@@ -26,6 +26,8 @@ export default class Hand extends React.Component {
 
 const styles = StyleSheet.create({
     hand: {
+        flex: 1, 
+        flexDirection: 'row',
         position: 'relative',
         padding: 20,
         paddingRight: 100,
@@ -33,8 +35,9 @@ const styles = StyleSheet.create({
         borderBottomColor: '#ededed',
     },
     cardText: {
-        paddingLeft: 20,
-        borderLeftWidth: 10,
+        paddingLeft: 4,
+        borderLeftWidth: 2,
         borderLeftColor: '#E91E63',
+        fontWeight: 'bold',
     },
 });
