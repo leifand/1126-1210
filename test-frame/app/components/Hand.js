@@ -2,23 +2,45 @@ import React from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 
 export default class Hand extends React.Component {
+
+
   render() {
+
+    let clubs = '';
+    for (let i=0; i<this.props.val.clubs.length; i++) {
+        clubs += ' ';
+        clubs += this.props.val.clubs[i];
+    }
+    let diamonds = '';
+    for (let i=0; i<this.props.val.diamonds.length; i++) {
+        diamonds += ' ';
+        diamonds += this.props.val.diamonds[i];
+    }
+    let hearts = '';
+    for (let i=0; i<this.props.val.hearts.length; i++) {
+        hearts += ' ';
+        hearts += this.props.val.hearts[i];
+    }
+    let spades = '';
+    for (let i=0; i<this.props.val.spades.length; i++) {
+        spades += ' ';
+        spades += this.props.val.spades[i];
+    }
     return (
 
         <View key={this.props.keyval} style={styles.hand}> 
-            <Text style={styles.cardText}>{this.props.val.clubs[0]}</Text>
-            <Text style={styles.cardText}>{this.props.val.clubs[1]}</Text>
-            <Text style={styles.cardText}>{this.props.val.clubs[2]}</Text>
-            <Text style={styles.cardText}>{this.props.val.diamonds[0]}</Text>
-            <Text style={styles.cardText}>{this.props.val.diamonds[1]}</Text>
-            <Text style={styles.cardText}>{this.props.val.diamonds[2]}</Text>
-            <Text style={styles.cardText}>{this.props.val.hearts[0]}</Text>
-            <Text style={styles.cardText}>{this.props.val.hearts[1]}</Text>
-            <Text style={styles.cardText}>{this.props.val.spades[0]}</Text>
-            <Text style={styles.cardText}>{this.props.val.spades[1]}</Text>
-            <Text style={styles.cardText}>{this.props.val.spades[2]}</Text>
-            <Text style={styles.cardText}>{this.props.val.spades[3]}</Text>
-            <Text style={styles.cardText}>{this.props.val.spades[4]}</Text>
+            <View style={styles.suit}>
+                <Text>{'\u2660'} {spades}</Text>     
+            </View>
+            <View style={styles.suit}>
+                <Text>{'\u2665'} {hearts}</Text>
+            </View>
+            <View style={styles.suit}>
+                <Text>{'\u2666'} {diamonds}</Text>
+            </View>
+            <View style={styles.suit}>
+                <Text>{'\u2663'} {clubs}</Text>
+            </View>
         </View>
     );
   }
@@ -26,18 +48,16 @@ export default class Hand extends React.Component {
 
 const styles = StyleSheet.create({
     hand: {
-        flex: 1, 
-        flexDirection: 'row',
+        flex: 1,
         position: 'relative',
-        padding: 20,
-        paddingRight: 100,
-        borderBottomWidth: 2,
-        borderBottomColor: '#ededed',
+    },
+    suit: {
+        flex: 1,
+        flexDirection: 'row',
+        paddingLeft: 10,
     },
     cardText: {
-        paddingLeft: 4,
-        borderLeftWidth: 2,
-        borderLeftColor: '#E91E63',
+        paddingLeft: 5,
         fontWeight: 'bold',
     },
 });

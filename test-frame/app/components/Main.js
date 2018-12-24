@@ -2,18 +2,51 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import Note from './Note';
 import Hand from './Hand';
+import Deck from './deck';
+
+const deck = new Deck();
+deck.generate_deck();
+deck.shuffle();
+deck.deal_hands();
+
+let loadHand = (n) => {
+
+  res = {
+    clubs: [],
+    diamonds: [],
+    hearts: [],
+    spades: [],
+  }
+
+  for (let i=0; i<deck.hands[n].length; i++) {
+    suit = deck.hands[n][i].suit;
+    console.log(suit);
+    if (suit == 'C') res.clubs.push(deck.hands[n][i].rank);
+    else if (suit == 'D') res.diamonds.push(deck.hands[n][i].rank);
+    else if (suit == 'H') res.hearts.push(deck.hands[n][i].rank);
+    else res.spades.push(deck.hands[n][i].rank); 
+  }
+  res.clubs.sort();
+  res.clubs.reverse()
+  res.diamonds.sort();
+  res.diamonds.reverse();
+  res.hearts.sort();
+  res.hearts.reverse();
+  res.spades.sort();
+  res.spades.reverse();
+  console.log(res);
+  return res;
+}
 
 export default class Main extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      north: {
-        clubs:['A','10','4'],
-        diamonds:['J','9','2'],
-        hearts:['5','3'],
-        spades:['A','K','Q','5','2'],
-      },
+      north: loadHand(0),
+      east: loadHand(1),
+      south: loadHand(2),
+      west: loadHand(3),
       noteArray: [
         {
         "date": "2018/12/21",
@@ -49,7 +82,18 @@ export default class Main extends React.Component {
         </View>
 
         <ScrollView style={styles.scrollContainer}>
-          <Hand val={this.state.north}/>
+          <View style={styles.northsouth}>
+            <Hand val={this.state.north}/>
+          </View>
+          <View style={styles.eastwest}>
+            <Hand val={this.state.west}/>
+            <View style={styles.east}>
+              <Hand val={this.state.east}/>
+            </View>
+          </View>
+          <View style={styles.northsouth}>
+            <Hand val={this.state.south}/>
+          </View>
           {notes}
         </ScrollView>
 
@@ -114,6 +158,16 @@ const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
     marginBottom: 100,
+  },
+  northsouth: {
+    alignItems: 'center',
+  },
+  eastwest: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  east: {
+    marginRight: 10,
   },
   footer: {
     position: 'absolute',
