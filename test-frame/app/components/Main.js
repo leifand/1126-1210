@@ -9,7 +9,7 @@ deck.generate_deck();
 deck.shuffle();
 deck.deal_hands();
 
-let loadHand = (n) => {
+let loadHand = (n) => { 
 
   res = {
     clubs: [],
@@ -26,14 +26,7 @@ let loadHand = (n) => {
     else if (suit == 'H') res.hearts.push(deck.hands[n][i].rank);
     else res.spades.push(deck.hands[n][i].rank); 
   }
-  res.clubs.sort();
-  res.clubs.reverse()
-  res.diamonds.sort();
-  res.diamonds.reverse();
-  res.hearts.sort();
-  res.hearts.reverse();
-  res.spades.sort();
-  res.spades.reverse();
+
   console.log(res);
   return res;
 }

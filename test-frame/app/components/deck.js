@@ -6,21 +6,27 @@ module.exports = class Deck {
     };
 
     generate_deck() {
-        let card = (suit,rank) => {
+        let card = (suit,rank, value) => {
             this.name = rank+suit;
             this.suit = suit;
             this.rank = rank;
-            return {'name':this.name,'suit':this.suit,'rank':this.rank};
+            this.value = value;
+            return {'name':this.name,'suit':this.suit,'rank':this.rank,'value':this.value};
         };
         let ranks = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
-        let suits = ['C','D','S','H'];
+        let suits = ['S','H','D','C'];
+        let values = [2,3,4,5,6,7,8,9,10,11,12,13,14];
         for(let s=0; s < suits.length; s++) {
             for(let v=0; v < ranks.length; v++) {
-                this.deck.push(card(suits[s],ranks[v]));
+                this.deck.push(card(suits[s],ranks[v],values[v]));
             }
         }
         return this.deck;
     };
+
+    precedence(a,b) {
+        return b.value - a.value;
+    }
 
     print_deck() {
         if(this.deck.length === 0) return -1;
@@ -50,6 +56,7 @@ module.exports = class Deck {
         let hand = [];
         for (let i=0; i<4; i++) {
             for (let j=0; j<13; j++) hand.push(this.deal());
+            hand.sort(this.precedence);
             this.hands.push(hand);
             hand = [];
         }
@@ -91,3 +98,11 @@ module.exports = class Deck {
         }
     }
 };
+
+/*let x = new Deck();
+x.generate_deck();
+x.shuffle();
+x.deck.sort(x.precedence);
+x.print_deck();
+
+console.log(x.hands);*/
