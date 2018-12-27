@@ -92,15 +92,15 @@ export default class Main extends React.Component {
 
         <KeyboardAvoidingView behavior='padding' style={styles.footer}>
 
-        <TextInput 
-          style={styles.textInput}
-          onChangeText={(noteText)=>this.setState({noteText})}
-          value={this.state.noteText}
-          placeholder='>note'
-          placeholderTextColor='white'
-          underlineColorAndroid='transparent'>
-        </TextInput>
-        
+          <TextInput 
+            style={styles.textInput}
+            onChangeText={(noteText)=>this.setState({noteText})}
+            value={this.state.noteText}
+            placeholder='>answer'
+            placeholderTextColor='white'
+            underlineColorAndroid='transparent'>
+          </TextInput>
+
         </KeyboardAvoidingView>
 
         <TouchableOpacity onPress={this.addNote.bind(this)} style={styles.addButton}>
@@ -183,8 +183,8 @@ const styles = StyleSheet.create({
     right: 20,
     bottom: 90,
     backgroundColor: '#E91E63',
-    width: 90,
-    height: 90,
+    width: 70,
+    height: 70,
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
