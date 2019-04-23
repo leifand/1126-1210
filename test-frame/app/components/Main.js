@@ -9,7 +9,7 @@ deck.generate_deck();
 deck.shuffle();
 deck.deal_hands();
 
-let loadHand = (n) => { 
+let loadHand = (n) => {
 
   res = {
     clubs: [],
@@ -40,20 +40,7 @@ export default class Main extends React.Component {
       east: loadHand(1),
       south: loadHand(2),
       west: loadHand(3),
-      noteArray: [
-        {
-        "date": "2018/12/21",
-        "note": 'director to table 13 plz!!',
-        },
-        {
-        "date": "2018/12/21",
-        "note": "Lacy is sooooooo unfair!!!!!",
-        },
-        {
-        "date": "2018/12/21",
-        "note": "Who ate all the cheese??",
-        },
-      ],
+      noteArray: [],
       noteText: '',
     }
   }
@@ -71,7 +58,7 @@ export default class Main extends React.Component {
       <View style={styles.container}>
         
         <View style={styles.header}>
-          <Text style={styles.headerText}> BRIDGE QUIZ </Text>
+          <Text style={styles.headerText}> Power Bridge Quiz </Text>
         </View>
 
         <ScrollView style={styles.scrollContainer}>
