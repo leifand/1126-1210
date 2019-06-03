@@ -49,6 +49,7 @@ export class PokemonSearch extends Component<User, SearchState> {
                             imgUrl: data.sprites.front_default
                         }
                     })
+                    console.log(data);
                 })
             })
     }
